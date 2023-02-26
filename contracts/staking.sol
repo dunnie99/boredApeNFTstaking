@@ -35,14 +35,6 @@ contract gatedStaking {
         _;
     }
 
-    function setStakeToken(address _token)external onlyOwner returns (address _newToken) {
-        require(_token != address(0), "cannot set address zero");
-
-        stakeToken = IERC20(_token);
-        _newToken = address(stakeToken);
-        return _newToken;
-    }
-
     function stake(uint256 amount) external {
 
         uint256 Apebalance = boredApeContract.balanceOf(msg.sender);
@@ -69,7 +61,7 @@ contract gatedStaking {
         uint256 _startTime = _user.startTime;
         uint256 duration = block.timestamp - _startTime;
 
-        _reward = (duration * 80 * _amount) / (SECONDS_PER_YEAR * 100);
+        _reward = (duration * 50 * _amount) / (SECONDS_PER_YEAR * 100);
     }
 
     function claimReward(uint256 amount) public {
