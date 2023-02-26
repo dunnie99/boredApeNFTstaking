@@ -14,6 +14,7 @@ contract CSRtoken is ERC20 {
         _name = name;
         _symbol = symbol;
         owner = msg.sender;
+        mint();
 
         
 //3 000 000 000 000 000 000
